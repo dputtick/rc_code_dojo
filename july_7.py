@@ -20,11 +20,10 @@ def paths(row_index, col_index, count):
                     else:
                         if count > current_longest:
                             current_longest = count
-    return count                   
+    return count
 
 
-longest_possible = sum(row.count(1) for row in matrix)
-current_longest = 0                 
+current_longest = 0
 for row_index, row in enumerate(matrix):
     for column_index, location in enumerate(row):
         if location == 1:
