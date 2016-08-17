@@ -2,6 +2,7 @@ import cProfile
 from operator import itemgetter
 
 cache = {1: 1}
+max_overall = (0, 0)
 
 
 def next_number(n):
@@ -23,14 +24,17 @@ def check_number(n):
 
 
 def main():
+    global max_overall
     for n in range(1, 1000000):
-        check_number(n)
-    return max(cache.items(), key=itemgetter(1))[0]
+        current = check_number(n)
+        if current > max_overall[0]:
+            max_overall = current, n
+    #return max(cache.items(), key=itemgetter(1))[0]
 
 
 if __name__ == '__main__':
     cProfile.run('main()', sort='tottime')
-    print(main())
+    print(max_overall[1])
 
 
 '''
