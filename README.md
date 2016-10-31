@@ -1,0 +1,1 @@
+Solutions to various problems from the [Recurse Center](https://www.recurse.com) weekly code dojos during Summer 2016.
